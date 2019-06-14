@@ -119,8 +119,8 @@
       "node"
     ],
     "watchPlugins": [
-      "/Users/martin/privatespace/gobuddy/node_modules/jest-watch-typeahead/filename.js",
-      "/Users/martin/privatespace/gobuddy/node_modules/jest-watch-typeahead/testname.js"
+      "<rootDir>/node_modules/jest-watch-typeahead/filename.js",
+      "<rootDir>/node_modules/jest-watch-typeahead/testname.js"
     ]
   },
   "babel": {
