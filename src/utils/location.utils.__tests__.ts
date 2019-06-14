@@ -4,7 +4,7 @@ import {
   encodingLocation,
   getQueryParam,
   removeQueryParam
-} from "./location.helper";
+} from "./location.utils";
 
 describe("Location 헬퍼 함수들에 대해서", () => {
   const encodedURL1 = encodeURIComponent("http://helloworld.com");
@@ -78,11 +78,11 @@ describe("Location 헬퍼 함수들에 대해서", () => {
    */
   describe("encodingLocation 헬퍼 함수에 대해서", () => {
     it("URL을 주입하면 URL을 인코딩하여 반환한다.", () => {
-      expect(encodingLocation(window.location.href)).toEqual("https%3A%2F%2Fdelivery.tmon.co.kr%2Fm%2Fmytmon%2Forders%2Fpurchase%2Fall%3Ffoo%3D1%26bar%3D2");
+      expect(encodingLocation(window.location.href)).toEqual("http%3A%2F%2Flocalhost%2F%3Ffoo%3D1%26bar%3D2");
       expect(encodingLocation("https://foo.bar")).toEqual("https%3A%2F%2Ffoo.bar");
     });
     it("주입된 URL이 없는 경우 현재의 URL을 인코딩하여 반환한다.", () => {
-      expect(encodingLocation()).toEqual("https%3A%2F%2Fdelivery.tmon.co.kr%2Fm%2Fmytmon%2Forders%2Fpurchase%2Fall%3Ffoo%3D1%26bar%3D2");
+      expect(encodingLocation()).toEqual("http%3A%2F%2Flocalhost%2F%3Ffoo%3D1%26bar%3D2");
     });
   });
 
@@ -92,11 +92,11 @@ describe("Location 헬퍼 함수들에 대해서", () => {
    */
   describe("removeQueryParam 헬퍼 함수에 대해서", () => {
     it("현재의 URL에 존재하는 query param의 Key값을 주입하는 경우 삭제한후 삭제된 URL을 반환한다.", () => {
-      expect(removeQueryParam("bar")).toEqual("https://delivery.tmon.co.kr/m/mytmon/orders/purchase/all?foo=1");
-      expect(removeQueryParam("foo")).toEqual("https://delivery.tmon.co.kr/m/mytmon/orders/purchase/all?bar=2");
+      expect(removeQueryParam("bar")).toEqual("http://localhost/?foo=1");
+      expect(removeQueryParam("foo")).toEqual("http://localhost/?bar=2");
     });
     it("현재의 URL에 존재하지 않는 query param의 Key값을 주입하는 경우 현재의 URL을 반환한다.", () => {
-      expect(removeQueryParam("query")).toEqual("https://delivery.tmon.co.kr/m/mytmon/orders/purchase/all?foo=1&bar=2");
+      expect(removeQueryParam("query")).toEqual("http://localhost/?foo=1&bar=2");
     });
   });
 });

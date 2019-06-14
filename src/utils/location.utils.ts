@@ -1,5 +1,5 @@
 import qs, {IParseOptions, IStringifyOptions} from "qs";
-import { Maybe, Nullable } from "@/@types/utils/utils.interfaces";
+import { Maybe, Nullable } from "../@types/utils/utils";
 
 interface IParams {
   [key: string]: Maybe<string | number>;

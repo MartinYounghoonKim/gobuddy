@@ -1,4 +1,4 @@
-import {isArray, isBoolean, isDateObject, isNumber, isString} from "./type-guards.helper";
+import {isArray, isBoolean, isDateObject, isNumber, isString} from "./type-guards.utils";
 
 describe('type-guards 헬퍼 함수에 대해', () => {
   test('isString은 정상적으로 string에 대한 타입체크를 해주는가', () => {
