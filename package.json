@@ -59,7 +59,7 @@
     "workbox-webpack-plugin": "3.6.3"
   },
   "scripts": {
-    "server:local": "nodemon ./server/index.js",
+    "server:local": "cross-env NODE_ENV=development nodemon --exec babel-node --presets babel-preset-env ./server",
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js"
@@ -74,12 +74,16 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "@babel/node": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "@babel/preset-react": "^7.0.0",
     "@types/jest": "^24.0.14",
     "@types/qs": "^6.5.3",
     "@types/react": "^16.8.17",
     "@types/react-dom": "^16.8.4",
     "@types/react-router": "^5.0.2",
     "@types/react-router-dom": "^4.3.4",
+    "cross-env": "^5.2.0",
     "nodemon": "^1.19.1",
     "ts-jest": "^24.0.2",
     "typescript": "^3.4.5"
@@ -128,11 +132,6 @@
     "watchPlugins": [
       "<rootDir>/node_modules/jest-watch-typeahead/filename.js",
       "<rootDir>/node_modules/jest-watch-typeahead/testname.js"
-    ]
-  },
-  "babel": {
-    "presets": [
-      "react-app"
     ]
   }
 }
