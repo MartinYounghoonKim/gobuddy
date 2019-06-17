@@ -2,6 +2,7 @@ import express from 'express';
 import React from 'react';
 import ReactDomServer from 'react-dom/server';
 import Html from "./Html";
+import App from "../client/src/App";
 
 const app = express();
 const port = 3000;
@@ -19,7 +20,9 @@ app.get('/', function (req, res, next) {
   // };
   //
   ReactDomServer.renderToNodeStream(
-    <Html/>
+    <Html>
+    <App />
+    </Html>
   ).pipe(res);
 });
 
