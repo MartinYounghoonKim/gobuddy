@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 // import './App.css';
 // import Header from "./components/Header";
-// import routes from "./router";
+import routes from "./router";
 
 class App extends Component {
 //   componentDidMount () {
@@ -110,7 +110,7 @@ class App extends Component {
     return (
       <>
         test
-      {/*{routes}*/}
+      {routes}
       {/*<div id="map" style={{ width: "100%", height: "90vh" }}>*/}
         {/*테스트*/}
       {/*</div>*/}
