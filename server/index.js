@@ -14,20 +14,18 @@ app.get('/', function (req, res, next) {
   //   text: 'Server-Side Rendering'
   // };
   //
-  // let renderProps = {
-  //   preloadState: `window.__PRELOADED_STATE__ =${JSON.stringify(preloadState).replace(/</g, '\\u003c')}`,
-  //   script: '/build/client.bundle.js'
-  // };
+  const renderProps = {
+    preloadState: `window.__PRELOADED_STATE__ =${JSON.stringify(preloadState).replace(/</g, '\\u003c')}`,
+    script: '/build/client.bundle.js'
+  };
   //
   ReactDomServer.renderToNodeStream(
-    <Html>
-    <App />
+    <Html {...renderProps}>
+      <App />
     </Html>
   ).pipe(res);
 });
 
 app.listen(port, () => {
-  // const host = app.address().address;
-  // const port = app.address().port;
   console.log('Express server has started on port:  http://localhost:3000')
 });
