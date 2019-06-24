@@ -20,17 +20,26 @@ app.get('/*', function (req, res, next) {
     preloadState: `window.__PRELOADED_STATE__ =${JSON.stringify(preloadState).replace(/</g, '\\u003c')}`,
     script: '/build/client.bundle.js'
   };
-  //
-  ReactDomServer.renderToNodeStream(
+  const context = {};
+  const html = ReactDomServer.renderToString(
     <Html {...renderProps}>
-      <StaticRouter location={ req.url }>
-        <Switch>
-          <Route exact={true} path="/signup" component={() => <div><NavLink to="signin">signin</NavLink></div>}/>
-          <Route exact={true} path="/signin" component={() => <div><NavLink to="signup">signup</NavLink></div>}/>
-        </Switch>
-      </StaticRouter>
+    <StaticRouter location={ req.url } context={context}>
+      <Switch>
+        <Route exact={true} path="/signup" component={() => <div><NavLink to="signin">signin</NavLink></div>}/>
+        <Route exact={true} path="/signin" component={() => <div><NavLink to="signup">signup</NavLink></div>}/>
+      </Switch>
+    </StaticRouter>
     </Html>
-  ).pipe(res);
+  );
+  if (context.url) {
+    res.writeHead(302, {
+      Location: context.url
+    });
+    res.send();
+  } else {
+    res.write(html);
+    res.send();
+  }
 });
 
 app.listen(port, () => {
