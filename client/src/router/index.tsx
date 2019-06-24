@@ -1,7 +1,8 @@
 import * as React from "react";
-import { Redirect, Route, Switch, BrowserRouter } from "react-router-dom";
+import { Route, Switch, BrowserRouter } from "react-router-dom";
 
-const Signup = React.lazy(() => import("../pages/Signup"));
+import Signup from "../pages/Signup";
+// const Signup = React.lazy(() => import("../pages/Signup"));
 
 export default (
   <>

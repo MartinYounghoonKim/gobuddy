@@ -4,7 +4,7 @@ import ReactDomServer from 'react-dom/server';
 import { StaticRouter, Route, Switch, NavLink } from "react-router-dom";
 import Html from "./Html";
 // import Signup from "../client/src/pages/Signup.tsx";
-// import App from "../client/src/App";
+import App from "../client/src/index";
 
 const app = express();
 const port = 3000;
@@ -21,16 +21,7 @@ app.get('/*', function (req, res, next) {
     script: '/build/client.bundle.js'
   };
   const context = {};
-  const html = ReactDomServer.renderToString(
-    <Html {...renderProps}>
-    <StaticRouter location={ req.url } context={context}>
-      <Switch>
-        <Route exact={true} path="/signup" component={() => <div><NavLink to="signin">signin</NavLink></div>}/>
-        <Route exact={true} path="/signin" component={() => <div><NavLink to="signup">signup</NavLink></div>}/>
-      </Switch>
-    </StaticRouter>
-    </Html>
-  );
+  const html = ReactDomServer.renderToString(App);
   if (context.url) {
     res.writeHead(302, {
       Location: context.url

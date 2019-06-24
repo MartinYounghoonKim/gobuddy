@@ -9,7 +9,7 @@ const Html = (props) => (
   </head>
   <body>
   <div id="root">{props.children}</div>
-  <script src={props.script}></script>
+  {/*<script src={props.script}></script>*/}
   </body>
   </html>
 );
