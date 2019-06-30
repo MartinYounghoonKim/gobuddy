@@ -1,6 +1,6 @@
 const React = require('react');
 
-const Html = (props) => (
+const Html = (props) => (`
   <html lang="en">
   <head>
     <meta charSet="utf-8"/>
@@ -8,10 +8,10 @@ const Html = (props) => (
     <script dangerouslySetInnerHTML={{ __html: props.preloadState }}></script>
   </head>
   <body>
-  <div id="root">{props.children}</div>
-  {/*<script src={props.script}></script>*/}
+  <div id="root">${props.children}</div>
+  <script src=${props.script}></script>
   </body>
   </html>
-);
+`);
 
 export default Html;
