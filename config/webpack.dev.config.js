@@ -14,6 +14,7 @@ function srcPathExtend(subpath) {
 }
 
 const webpackConfig = {
+  mode: 'development',
   target: 'node',
   entry: './server/index.js',
   output: {
@@ -28,8 +29,8 @@ const webpackConfig = {
   module: {
     rules: [
       {
-        test: /\.tsx?$/,
-        use: ["babel-loader", "ts-loader"]
+        test: /\.(js|tsx)$/,
+        use: ["babel-loader"]
       },
       {
         test: /\.scss$/,
@@ -81,6 +82,7 @@ const webpackConfig = {
     ]
   },
   node: {
+    __dirname: false,
     fs: 'empty',
     net: 'empty',
   }
