@@ -85,3 +85,5 @@ const webpackConfig = {
     net: 'empty',
   }
 };
+
+module.exports = webpackConfig;
