@@ -96,6 +96,11 @@
     "webpack-cli": "^3.3.5",
     "webpack-merge": "^4.2.1"
   },
+  "babel": {
+    "presets": [
+      "react-app"
+    ]
+  },
   "jest": {
     "collectCoverageFrom": [
       "src/**/*.{js,jsx,ts,tsx}",
