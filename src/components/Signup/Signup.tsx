@@ -3,6 +3,7 @@ import FormField from "../Utils/FormField/FormField";
 import Button from "../Utils/Button/Button";
 import {IHTMLElementChangeEvent} from "../../@types/utils/events";
 import { FormEvent } from "react";
+import {Link} from "react-router-dom";
 
 interface IState {
   id: string;
@@ -43,6 +44,7 @@ class Signup extends React.Component<IProps, IState> {
     return (
       <div>
         <h1>회원가입</h1>
+        <Link to="/home">Home</Link>
         <form onSubmit={onSubmitHandler}>
           <FormField
             label="아이디"
