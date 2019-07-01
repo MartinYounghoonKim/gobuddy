@@ -2,7 +2,9 @@
 import * as React from 'react';
 // import './App.css';
 // import Header from "./components/Header";
-import routes from "./router";
+import Home from "./pages/Home";
+import Signup from "./pages/Signup";
+import { Route, Switch, NavLink } from "react-router-dom";
 
 class App extends React.Component {
 //   componentDidMount () {
@@ -109,8 +111,19 @@ class App extends React.Component {
 
     return (
       <>
+        <ul>
+          <li>
+            <NavLink to="/home">Home</NavLink>
+          </li>
+          <li>
+            <NavLink to="/signup">signup</NavLink>
+          </li>
+        </ul>
+        <Switch>
+          <Route path="/home" component={Home}/>
+          <Route path="/signup" component={Signup}/>
+        </Switch>
         test
-      {routes}
       {/*<div id="map" style={{ width: "100%", height: "90vh" }}>*/}
         {/*테스트*/}
       {/*</div>*/}
