@@ -1,10 +1,10 @@
 /* eslint-disable */
-import React, { Component } from 'react';
+import * as React from 'react';
 // import './App.css';
 // import Header from "./components/Header";
 import routes from "./router";
 
-class App extends Component {
+class App extends React.Component {
 //   componentDidMount () {
 //     var mapContainer = document.getElementById('map'), // 지도를 표시할 div
 //       mapOption = {
