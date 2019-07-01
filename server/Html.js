@@ -1,17 +1,20 @@
 const React = require('react');
 
-const Html = (props) => (`
-  <html lang="en">
-  <head>
-    <meta charSet="utf-8"/>
-    <title>React Server-Side Rendering</title>
-    <script dangerouslySetInnerHTML={{ __html: props.preloadState }}></script>
-  </head>
-  <body>
-  <div id="root">${props.children}</div>
-  <script src=${props.script}></script>
-  </body>
-  </html>
+const Html = ({ html }) => (`
+  <!DOCTYPE html>
+      <head>
+        <title>Universal React</title>
+        <link rel="stylesheet" href="/css/main.css">
+      </head>
+      <body>
+        <div id="root">${html}</div>
+        <script>
+        </script>
+
+        <script src="/js/2.5ff27bb7.chunk.js" defer></script>
+        <script src="/js/main.c053551b.chunk.js" defer></script>
+      </body>
+    </html>
 `);
 
 export default Html;

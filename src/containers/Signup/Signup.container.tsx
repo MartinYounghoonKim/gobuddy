@@ -7,6 +7,7 @@ class SignupContainer extends React.Component {
   }
   render () {
     const { onSubmitHandler } = this;
+    console.log(123123);
     return (
       <Signup
         onSubmit={onSubmitHandler}
